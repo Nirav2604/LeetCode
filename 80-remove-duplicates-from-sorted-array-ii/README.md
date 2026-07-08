@@ -51,3 +51,14 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
+DRY RUN
+k = 2
+count = 0
+| i | nums[i] | nums[k-2] | Equal? | count | Action     | k |
+| - | ------- | --------- | ------ | ----- | ---------- | - |
+| 2 | 1       | 1         | Yes    | 1     | Keep going | 2 |
+| 3 | 2       | 1         | No     | 1     | Copy 2     | 3 |
+| 4 | 2       | 1         | No     | 1     | Copy 2     | 4 |
+| 5 | 2       | 2         | Yes    | 2     | Skip       | 4 |
+| 6 | 3       | 2         | No     | 2     | Copy 3     | 5 |
+
