@@ -1,11 +1,15 @@
 class Solution {
     public void nextPermutation(int[] nums) {
-        int i = nums.length - 2;
-        while (i >= 0 && nums[i] >= nums[i + 1]) {
+        int n = nums.length;
+        int i = n - 2;
+        while (i >= 0) {
+            if (nums[i] < nums[i + 1]) {
+                break;
+            }
             i--;
         }
         if (i >= 0) {
-            int j = nums.length - 1;
+            int j = n - 1;
             while (nums[j] <= nums[i]) {
                 j--;
             }
@@ -14,7 +18,7 @@ class Solution {
             nums[j] = temp;
         }
         int left = i + 1;
-        int right = nums.length - 1;
+        int right = n - 1;
         while (left < right) {
             int temp = nums[left];
             nums[left] = nums[right];
