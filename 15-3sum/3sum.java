@@ -11,11 +11,11 @@ class Solution {
             while (left < right) {
                 int sum = nums[i] + nums[left] + nums[right];
                 if (sum == 0) {
-                    List<Integer> triplet = new ArrayList<>();
-                    triplet.add(nums[i]);
-                    triplet.add(nums[left]);
-                    triplet.add(nums[right]);
-                    answer.add(triplet);
+                    answer.add(Arrays.asList(
+                        nums[i],
+                        nums[left],
+                        nums[right]
+                    ));
                     left++;
                     right--;
                     while (left < right && nums[left] == nums[left - 1]) {
@@ -33,7 +33,6 @@ class Solution {
                 }
             }
         }
-
         return answer;
     }
 }
